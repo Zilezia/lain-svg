@@ -1,3 +1,4 @@
+<!-- reference image is ../assets/wharlain.png -->
 <svg xmlns="http://www.w3.org/2000/svg"
     height="500" width="500" 
     viewBox="-250 -250 500 500"
@@ -5,6 +6,11 @@
 
     <!-- colours -->
     <style>
+
+        .optional {
+            display: none; /* just not displaying the more detailed parts */
+        }
+
         .skin {
             fill: #e9cfba;
             stroke: #e9cfba;
@@ -13,7 +19,73 @@
             fill: #7C6458;
             opacity: 0.5;
         }
+
     </style>
+
+    <defs>
+        <g id="iris">
+            <g class="base">
+                <circle r="17" fill="#6b4a3d"/>
+                <circle cx="-1.5" cy="-2" r="13" fill="#4b3f39"/>
+                <circle cx=".5" cy=".3" r="2.5" fill="black"/>
+                <circle cx="-8" cy="-7" r="2.7" fill="white"/>
+            </g>
+            <g class="optional">
+                <line x1="-8" y1="5" x2="-10" y2="7" stroke-width=".5" stroke="black" style="stroke-linecap: round;"/>
+                <line x1="-8" y1="5" x2="-10" y2="7" stroke-width=".5" stroke="black" style="stroke-linecap: round;"/>
+                <line x1="-8" y1="5" x2="-10" y2="7" stroke-width=".5" stroke="black" style="stroke-linecap: round;"/>
+            </g>
+        </g>
+        <!-- last line: Q -6 -33 25 -5 -->
+        <g id="bialko">
+            <path class="base"
+                d="
+                    M 25 -5
+                    Q 25.5 5 20 13
+                    Q -5 30 -26 6
+                    Q -26 0 -23 -5
+                    Q 2 -28 25 -5
+                "
+                fill="white"
+                stroke="white"
+                style="stroke-linecap: round; stroke-linejoin: round;"
+            />
+        </g>
+        <g id="brows">
+            <path class="upper"
+                d=" 
+                    M 25.5 -4.5
+                    Q 2 -26 -23 -5
+                    Q -27 1 -26 6.5
+                    Q -28 5.5 -31 6
+                    L -29.5 3.5
+                    L -32 2
+                    Q -30.5 1.5 -28.5 -1
+                    L -28.75 -2.5
+                    Q -28 -3 -27 -4
+                    L -27 -5.5
+                    L -25 -7
+                    L -25 -8
+                    Q -23 -7.9 -20 -10.5
+                    L -19.7 -12
+                    Q -18 -12.5 -15 -14.5
+                    L -14.75 -15.5
+                    Q -13 -15.5 -8 -18
+                    Q -4 -17.5 0 -18.2
+                    C 5 -15 15 -20 25.5 -4.5
+                "
+                fill="black"
+                stroke="black"
+                stroke-width=".5"
+                style="stroke-linecap: round; stroke-linejoin: round;"
+            />
+            <path class="lower"
+                d="
+                "
+            />
+        </g>
+    </defs>
+
     <!-- head -->
     <circle cx='0' cy='0' r='150' class="skin"/>
     <path class="skin"
@@ -29,29 +101,29 @@
         stroke-width="5"
     />
     <!-- face -->
-    <path
+    <!-- mouth --> <path
         d="M -6 130 Q -2 129.5 3 132"
         stroke="black"
         stroke-width="1.3"
         fill="none"
         style="stroke-linecap: round;"
     />
-
-    <path
+    
+    <!-- left-nostril --> <path
         d="M -8 109 Q -6 109 -3.5 110.3"
         stroke="black"
         stroke-width="1.2"
         fill="black"
         style="stroke-linecap: round;"
     />
-    <path
+    <!-- right-nostril --> <path
         d="M 3 110.3 Q 5 109 8 109.5"
         stroke="black"
         fill="black"
         stroke-width="1.2"
         style="stroke-linecap: round;"
     />
-    <path class="shadow"
+    <!-- nose-shadow --> <path class="shadow"
         d="
             M 6 69 
             L 4 104
@@ -59,9 +131,16 @@
             L 19 113
             L 19 108
             L 15 85
-            L 6 70
+            L 6 69
         "
-        stroke-width="1"
         style="stroke-linejoin: round; stroke-linecap: round;"
     />
+    <!-- left -->
+    <use href="#bialko" x="-69" y="15" transform="scale(1.1)"/>
+    <use href="#iris" x="-69" y="15" transform="scale(1.1)"/>
+    <use href="#brows" x="-69" y="15" transform="scale(1.1)"/>
+    <!-- right -->
+    <use href="#bialko" x="-70" y="18" transform="scale(-1, 1) scale(1.1)"/>
+    <use href="#iris" x="70" y="18" transform="scale(1.1)"/>
+    <use href="#brows" x="-70" y="18" transform="scale(-1, 1) scale(1.1)"/>
 </svg>
